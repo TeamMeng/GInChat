@@ -1,0 +1,31 @@
+postgres:
+  host: "127.0.0.1"
+  port: 5432
+  user: "postgres"
+  password: "123456"
+  db_name: "ginchat"
+  max_conns: 20
+
+redis:
+  addr: "127.0.0.1:6379"
+  password: ""
+  db: 0
+
+timeout:
+  delay_heartbeat: 3
+  heartbeat_hz: 30
+  heartbeat_max_time: 300
+  redis_online_time: 4
+
+port:
+  server: ":8080"
+
+log:
+  output: "both"
+  file: "./log/app.log"
+  format_json: false
+
+jwt:
+  access_token_secret: "ginchat-secret-key"
+  access_expire_time: 7200
+
