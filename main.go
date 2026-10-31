@@ -4,12 +4,17 @@ import (
 	"log"
 
 	"GinChat/config"
+	"GinChat/initial"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	config.LoadConfig()
+
+	if err := initial.InitPostgres(); err != nil {
+		log.Fatalf("Failed to initialize Postgres: %v", err)
+	}
 
 	r := gin.Default()
 	r.GET("/health", func(ctx *gin.Context) {
